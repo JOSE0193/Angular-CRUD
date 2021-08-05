@@ -1,0 +1,15 @@
+{
+    "produtos": [{
+        "id": 1,
+        "nome": "lápis",
+        "preco": 2.40,
+        "detalhes": "lápis preto, jandaia"
+    },
+    {    "id": 2,
+        "nome": "borracha",
+        "preco": 1.50,
+        "detalhes": "borracha escolar, jandaia"
+    }
+]
+
+}
