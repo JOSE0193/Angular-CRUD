@@ -8,7 +8,8 @@
             </i>
             Home
           </a>
-          <a mat-list-item routerLink="/produtos">
+
+          <a mat-list-item [routerLink]="['/produtos']" routerLinkActive="active" >
             <i class="material-icons">
               storefront
             </i>
@@ -23,3 +24,4 @@
         </mat-nav-list>
     </mat-sidenav>
 </mat-sidenav-container>
+<router-outlet></router-outlet>
