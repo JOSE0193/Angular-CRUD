@@ -14,7 +14,7 @@ import { FooterComponent } from './template/footer/footer.component';
   declarations: [
     HeaderComponent,
     NavComponent,
-  FooterComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,

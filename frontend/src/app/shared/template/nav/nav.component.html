@@ -1,27 +1,30 @@
-<mat-sidenav-container class="container">
-    <mat-sidenav class="sidenav" mode="side"
-      opened fixedInViewport="true" fixedTopGap="64">
-        <mat-nav-list class="nav-list">
-          <a mat-list-item routerLink="/">
-            <i class="material-icons">
-              home
-            </i>
-            Home
-          </a>
+<mat-sidenav-container class="flex">
+  <mat-sidenav class="sidenav" mode="side"
+    opened fixedInViewport="true" fixedTopGap="64">
+      <mat-nav-list class="nav-list">
+        <a mat-list-item routerLink="/">
+          <i class="material-icons">
+            home
+          </i>
+          Home
+        </a>
 
-          <a mat-list-item [routerLink]="['/produtos']" routerLinkActive="active" >
-            <i class="material-icons">
-              storefront
-            </i>
-            Produtos
-          </a>
-          <a mat-list-item routerLink="/categorias">
-            <i class="material-icons">
-              list
-            </i>
-            Categorias
-          </a>
-        </mat-nav-list>
-    </mat-sidenav>
+        <a mat-list-item [routerLink]="['/produtos']" routerLinkActive="active" >
+          <i class="material-icons">
+            storefront
+          </i>
+          Produtos
+        </a>
+        <a mat-list-item routerLink="/categorias">
+          <i class="material-icons">
+            list
+          </i>
+          Categorias
+        </a>
+      </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-<router-outlet></router-outlet>
+
