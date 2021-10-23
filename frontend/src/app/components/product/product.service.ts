@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Product } from './product.model';
 
@@ -11,6 +12,7 @@ import { Product } from './product.model';
 export class ProductService {
 
   baseUrl = "http://localhost:3001/produtos"
+
   constructor(
     private snackBar: MatSnackBar,
     private http: HttpClient
@@ -29,7 +31,23 @@ export class ProductService {
   }
 
   read(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.baseUrl);
+    return this.http.get<Product[]>(this.baseUrl).pipe(
+      map((obj) => obj)
+    );
+  }
 
+  readById(id: any): Observable<Product> {
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<Product>(url);
+  }
+
+  update(product: Product): Observable<Product>{
+    const url = `${this.baseUrl}/${product.id}`
+    return this.http.put<Product>(url, product)
+  }
+
+  delete(id: any): Observable<Product>{
+    const url = `${this.baseUrl}/${id}`
+    return this.http.delete<Product>(url);
   }
 }

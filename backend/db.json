@@ -1,15 +1,34 @@
 {
-    "produtos": [{
-        "id": 1,
-        "nome": "lápis",
-        "preco": 2.40,
-        "detalhes": "lápis preto, jandaia"
+  "produtos": [
+    {
+      "id": 1,
+      "name": "lápis",
+      "price": "2.5",
+      "details": "lápis preto fabercastel"
     },
-    {    "id": 2,
-        "nome": "borracha",
-        "preco": 1.50,
-        "detalhes": "borracha escolar, jandaia"
+    {
+      "id": 2,
+      "name": "borracha",
+      "price": 1.5,
+      "details": "borracha escolar, jandaia"
+    },
+    {
+      "name": "Notebook",
+      "price": 1.505,
+      "details": "Notebook asus 4Gb 500Gb",
+      "id": 3
+    },
+    {
+      "name": "caneta",
+      "price": "1.00",
+      "details": "caneta azul bic",
+      "id": 4
+    },
+    {
+      "name": "resma",
+      "price": "20.00",
+      "details": "Resma de papel 500 folhas",
+      "id": 5
     }
-]
-
+  ]
 }

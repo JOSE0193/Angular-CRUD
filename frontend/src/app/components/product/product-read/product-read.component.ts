@@ -1,6 +1,9 @@
-import { Product } from './../product.model';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import { ProductService } from '../product.service';
+import { ProductDeleteComponent } from './../product-delete/product-delete.component';
+import { Product } from './../product.model';
 
 @Component({
   selector: 'app-product-read',
@@ -10,16 +13,23 @@ import { ProductService } from '../product.service';
 export class ProductReadComponent implements OnInit {
 
   products: Product[] = [];
+  displayedColumns: string[] = ['id', 'name', 'price', 'details', 'actions'];
 
   constructor(
-    private service: ProductService
-  ) { }
+    private service: ProductService,
+    private dialog: MatDialog
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.service.read().subscribe(products => {
       this.products = products
-      console.log(products)
-    })
+    });
+  }
+
+  openDialog(){
+    this.dialog.open(ProductDeleteComponent);
   }
 
 }

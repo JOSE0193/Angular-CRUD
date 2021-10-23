@@ -8,11 +8,15 @@
   <mat-form-field>
     <input matInput placeholder="0.00" [(ngModel)]="product.price" name="price">
   </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Descrição" [(ngModel)]="product.details" name="details">
+  </mat-form-field>
 </form>
 
 
-<button mat-raised-button (click)="createProduct()" color="primary">Salvar</button>
+<button mat-raised-button (click)="createProduct()" color="accent">Salvar</button>
 
-<button mat-raised-button (click)="cancel()" color="warning">Cancelar</button>
+<button mat-raised-button (click)="cancel()" color="warn">Cancelar</button>
 
 </mat-card>

@@ -1,19 +1,20 @@
-import { RouterModule } from '@angular/router';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
+import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatDialogModule} from '@angular/material/dialog';
+import { RouterModule } from '@angular/router';
 
+import { FooterComponent } from './template/footer/footer.component';
 import { HeaderComponent } from './template/header/header.component';
 import { NavComponent } from './template/nav/nav.component';
-import { FooterComponent } from './template/footer/footer.component';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,8 +31,9 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
-
+    MatInputModule,
+    MatTableModule,
+    MatDialogModule
   ],
   exports: [
     MatToolbarModule,
@@ -41,7 +43,9 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatSnackBarModule,
     MatFormFieldModule,
+    MatTableModule,
     MatInputModule,
+    MatDialogModule,
     HeaderComponent,
     NavComponent,
     FooterComponent
