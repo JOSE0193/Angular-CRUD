@@ -11,7 +11,12 @@ import { ProductService } from '../product.service';
 })
 export class ProductUpdateComponent implements OnInit {
 
-  product!: Product
+  product: Product = {
+    _id: 0,
+    name: '',
+    price: 0,
+    details: ''
+  }
 
   constructor(
     private service: ProductService,

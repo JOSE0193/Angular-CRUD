@@ -4,7 +4,7 @@
       "id": 1,
       "name": "lápis",
       "price": "2.5",
-      "details": "lápis preto fabercastel"
+      "details": "lápis compacto"
     },
     {
       "id": 2,
@@ -29,6 +29,12 @@
       "price": "20.00",
       "details": "Resma de papel 500 folhas",
       "id": 5
+    },
+    {
+      "name": "Caderno",
+      "price": "12.99",
+      "details": "Caderno foroni 200 folhas.",
+      "id": 6
     }
   ]
 }

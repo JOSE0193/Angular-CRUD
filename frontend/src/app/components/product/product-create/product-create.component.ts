@@ -12,8 +12,9 @@ import { Product } from './../product.model';
 export class ProductCreateComponent implements OnInit {
 
   product: Product = {
+    _id: 0,
     name: '',
-    price: null,
+    price: 0,
     details: ''
   }
 

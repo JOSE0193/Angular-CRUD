@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 import { ProductCreateComponent } from './product-create/product-create.component';
@@ -25,6 +25,7 @@ import { ProductComponent } from './product/product.component';
     ProductRoutingModule,
     HttpClientModule,
     SharedModule,
+    ReactiveFormsModule,
     FormsModule
   ],
   exports: [

@@ -1,11 +1,9 @@
-import { catchError } from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from './../product.model';
 import { ProductService } from './../product.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-delete',
@@ -14,36 +12,36 @@ import { Observable } from 'rxjs';
 })
 export class ProductDeleteComponent implements OnInit {
 
-  product: Observable<Product>;
+  product: Product = {
+    _id: 0,
+    name: '',
+    price: 0,
+    details: ''
+  };
 
   constructor(
     private service: ProductService,
     private dialog: MatDialog,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
+  ) {  }
 
-  ) {
+  ngOnInit(): void{
     const id = this.route.snapshot.paramMap.get('id');
     this.service.readById(id).subscribe((product) => {
-      this.product = product;
-
-    }
-  )}
-
-  ngOnInit(): void {
-
-  }
-
-  confirmDelete(): void {
-    this.service.delete(this.product.id).subscribe(() => {
-      this.service.showMessage('O produto foi deletado!')
-      this.router.navigate(['/produtos']);
+      this.product = product
     });
   }
 
-  cancelDelete() {
-    this.dialog.closeAll();
-    this.router.navigate(['/produtos'])
+  confirmDelete(): void{
+    this.service.delete(this.product._id).subscribe(() => {
+      this.service.showMessage('Produto excluído!');
+      this.dialog.closeAll;
+    })
+  }
+
+  cancelDelete(): void{
+    this.service.showMessage('Operação cancelada!');
+    this.dialog.closeAll;
   }
 
 }
