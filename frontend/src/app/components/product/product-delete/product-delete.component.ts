@@ -13,7 +13,7 @@ import { ProductService } from './../product.service';
 export class ProductDeleteComponent implements OnInit {
 
   product: Product = {
-    _id: 0,
+    id: 0,
     name: '',
     price: 0,
     details: ''
@@ -33,7 +33,7 @@ export class ProductDeleteComponent implements OnInit {
   }
 
   confirmDelete(): void{
-    this.service.delete(this.product._id).subscribe(() => {
+    this.service.delete(this.product.id).subscribe(() => {
       this.service.showMessage('Produto excluído!');
       this.dialog.closeAll;
     })
