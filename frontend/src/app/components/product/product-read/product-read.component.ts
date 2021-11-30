@@ -1,11 +1,11 @@
-import { Observable } from 'rxjs';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { ProductService } from '../product.service';
 import { ProductDeleteComponent } from './../product-delete/product-delete.component';
 import { Product } from './../product.model';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-read',
@@ -14,35 +14,29 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductReadComponent implements OnInit {
 
-  product: Product = {
-    id: 0,
-    name: '',
-    price: 0,
-    details: ''
-  };
-
-  products: Product[] = [];
+  products$: Observable<Product[]>;
   displayedColumns: string[] = ['id', 'name', 'price', 'details', 'action'];
+  products!: Product[];
+
 
   constructor(
     private service: ProductService,
     private dialog: MatDialog,
     private route: ActivatedRoute
   ) {
+    this.products$ = service.read();
+    }
 
-  }
+  ngOnInit(): void { }
 
-  ngOnInit(): void {
-    this.service.read().subscribe((data: Product[]) => {
-      this.products = data;
+
+  openDialog(id: any){
+    const dialogRef = this.dialog.open(ProductDeleteComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.service.readById(id);
+      console.log(`Dialog result: ${result}`);
+
     });
-    const id = this.route.snapshot.paramMap.get('id');
-    this.service.readById(id).subscribe((product) => {
-      this.product = product
-    });
   }
 
-  openDialog(){
-    this.dialog.open(ProductDeleteComponent);
-  }
 }

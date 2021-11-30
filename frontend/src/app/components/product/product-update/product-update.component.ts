@@ -12,11 +12,11 @@ import { ProductService } from '../product.service';
 export class ProductUpdateComponent implements OnInit {
 
   product: Product = {
-    id: 0,
+    id: '',
     name: '',
-    price: 0,
+    price: '',
     details: ''
-  }
+  };
 
   constructor(
     private service: ProductService,

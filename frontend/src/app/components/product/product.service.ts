@@ -11,7 +11,7 @@ import { Product } from './product.model';
 })
 export class ProductService {
 
-  private readonly baseUrl = "http://localhost:3001/produtos"
+  baseUrl = "http://localhost:3001/produtos"
 
   constructor(
     private snackBar: MatSnackBar,
@@ -50,7 +50,7 @@ export class ProductService {
   }
 
   update(product: Product): Observable<Product>{
-    const url = `${this.baseUrl}/${product.id}`
+    const url = `${this.baseUrl}/${product.id}`;
     return this.http.put<Product>(url, product).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -58,8 +58,7 @@ export class ProductService {
   }
 
   delete(id: any): Observable<Product> {
-    const url = `${this.baseUrl}/${id}`;
-    return this.http.delete<Product>(url).pipe(
+    return this.http.delete<Product>(this.baseUrl).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

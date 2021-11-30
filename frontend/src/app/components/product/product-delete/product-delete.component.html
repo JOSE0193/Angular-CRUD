@@ -2,7 +2,7 @@
 
 <div mat-dialog-actions>
   <button mat-button mat-dialog-close (click)="confirmDelete()">Sim</button>
-  <button mat-button mat-dialog-close (click)="cancelDelete()">Não</button>
+  <button mat-button [mat-dialog-close]="true" >Não</button>
 </div>
 
 
