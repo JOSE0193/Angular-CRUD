@@ -14,29 +14,23 @@ import { Product } from './../product.model';
 })
 export class ProductReadComponent implements OnInit {
 
-  products$: Observable<Product[]>;
-  displayedColumns: string[] = ['id', 'name', 'price', 'details', 'action'];
   products!: Product[];
-
+  displayedColumns: string[] = ['id', 'name', 'price', 'details', 'action'];
 
   constructor(
     private service: ProductService,
     private dialog: MatDialog,
     private route: ActivatedRoute
-  ) {
-    this.products$ = service.read();
-    }
+  ) {  }
 
-  ngOnInit(): void { }
-
-
-  openDialog(id: any){
-    const dialogRef = this.dialog.open(ProductDeleteComponent);
-    dialogRef.afterClosed().subscribe(result => {
-      this.service.readById(id);
-      console.log(`Dialog result: ${result}`);
-
-    });
+  ngOnInit(): void {
+    this.service.read().subscribe(products => {
+      this.products = products
+    })
   }
 
 }
+
+
+
+

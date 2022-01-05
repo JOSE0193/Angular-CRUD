@@ -1,6 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from './../product.model';
 import { ProductService } from './../product.service';
@@ -15,28 +14,26 @@ export class ProductDeleteComponent implements OnInit {
   product!: Product;
 
   constructor(
+    private router: Router,
     private service: ProductService,
-    private dialog: MatDialog,
     private route: ActivatedRoute,
-    @Inject (MAT_DIALOG_DATA) public data: Product
-
   ) {  }
 
-  ngOnInit(): void{
-
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.service.readById(id).subscribe((product) => {
+      this.product = product;
+    });
   }
 
-  confirmDelete(): void{
-    this.service.delete(this.product.id).subscribe((res) => {
-      this.service.showMessage('Produto excluído!');
-      this.dialog.afterAllClosed
-      this.data = res
-    })
+  deleteProduct(): void {
+    this.service.delete(this.product.id).subscribe(() => {
+      this.service.showMessage("Produto excluido com sucesso!");
+      this.router.navigate(["/produtos"]);
+    });
   }
 
-  cancelDelete(): void{
-    this.service.showMessage('Operação cancelada!');
-    this.dialog.closeAll;
+  cancel(): void {
+    this.router.navigate(["/produtos"]);
   }
-
 }

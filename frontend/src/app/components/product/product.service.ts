@@ -58,7 +58,8 @@ export class ProductService {
   }
 
   delete(id: any): Observable<Product> {
-    return this.http.delete<Product>(this.baseUrl).pipe(
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<Product>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );

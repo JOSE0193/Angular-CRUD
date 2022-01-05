@@ -1,8 +1,22 @@
-<div mat-dialog-content>Tem certeza que deseja excluir o produto ?</div>
+<mat-card>
+  <mat-card-title>Excluir Produto</mat-card-title>
+  <form>
+      <mat-form-field>
+          <input matInput placeholder="Nome"
+              [value]="product.name" name="name" disabled>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput placeholder="Preço (R$)"
+              [value]="product.price" name="price" disabled>
+      </mat-form-field>
+  </form>
+  <button mat-raised-button (click)="deleteProduct()" color="warn">
+      Excluir
+  </button>
 
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close (click)="confirmDelete()">Sim</button>
-  <button mat-button [mat-dialog-close]="true" >Não</button>
-</div>
+  <button mat-raised-button (click)="cancel()">
+      Cancelar
+  </button>
+</mat-card>
 
 

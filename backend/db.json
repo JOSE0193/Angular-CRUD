@@ -1,40 +1,22 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "name": "lápis",
-      "price": "4.50",
-      "details": "caneta comp"
-    },
-    {
-      "id": 2,
-      "name": "borracha",
-      "price": 1.5,
-      "details": "borracha escolar, jandaia"
-    },
-    {
-      "name": "Notebook",
-      "price": 1.505,
-      "details": "Notebook asus 4Gb 500Gb",
-      "id": 3
-    },
-    {
       "name": "caneta",
       "price": "1.00",
-      "details": "caneta azul bic",
+      "details": "Caneta azul bic",
       "id": 4
-    },
-    {
-      "name": "resma",
-      "price": "20.00",
-      "details": "Resma de papel 500 folhas",
-      "id": 5
     },
     {
       "name": "Caderno",
       "price": "12.99",
       "details": "Caderno foroni 200 folhas.",
       "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Caneta",
+      "price": "1.00",
+      "details": "Caneta Fabercastell"
     }
   ]
 }
